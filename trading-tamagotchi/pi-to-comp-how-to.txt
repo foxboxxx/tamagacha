@@ -1,0 +1,10 @@
+Short instructions for reading the pi's terminal output from the computer side,
+using the current scripts.
+
+1. Make the pi executable
+2. Run the pi executable
+3. Control+c in the terminal window where you ran the executable. This doesn't stop
+the pi from running, but stops the terminal output on the computer side
+4. Start the python script which reads from the port (which only has one read port,
+but can now be read from since the terminal isn't doing it anymore)
+5. Process the output accordingly in the python file, and profit :)

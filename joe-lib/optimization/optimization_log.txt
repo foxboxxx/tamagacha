@@ -1,0 +1,12 @@
+Log of optimizations that I made at each step:
+1-start: initial setup - 4650 cycles avg
+2-simple: simple optimizations acccording to 340lx. Most of these didn't apply since they were optimized away already, but removed dev barriers and used -O3 flag
+    avg cost with O3 and no strict alaising: 4550
+    avg cost after rewriting starter code to enable strict aliasing: 4380
+3-fiq: use async rising/falling edges, and fast interrupts:
+    avg cost with async, no fiq: 4380 (no real benefit from previous)
+    avg cost with fiq as well: 3920
+    next, I tried commenting out the "mov r0, lr" since handler doesn't use pc, but it got slower actually: 4022
+4-inline: inlined relevant GPIO operations, avg cost = 3300
+5-enable-cache: enabled i cache and bpb, avg cost = 1386 (this also reduced variablity quite a lot :)
+
